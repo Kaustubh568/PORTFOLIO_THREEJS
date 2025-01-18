@@ -69,9 +69,10 @@ export function Island({
   useFrame(() => {
     if(!isRotating){
       rotationspeed.current *= dampingFactor;
-    }
     if(Math.abs(rotationspeed.current)< 0.001 ){
       rotationspeed.current = 0;
+    }
+    islandRef.current.rotation.y += rotationspeed.current;
     }else{
       const rotation = islandRef.current.rotation.y;
 
